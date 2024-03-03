@@ -59,9 +59,27 @@ input:focus{
 .ant-btn-primary{
   background-color: red !important;
 }
+.spinner-border{
+  width: 5rem;
+  height: 5rem;
+  color: white !important;
+}
 .card{
   box-shadow: 0 0 2px gray;
 
+}
+.spinner-parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.329);
+  position: fixed;
+  top:0;
+  height: 100%;
+  width: 100%;
+  left:0;
+  z-index: 999;
 }
 
 /*auth pages */

@@ -3,11 +3,16 @@ import {Link,  useNavigate} from 'react-router-dom'
 import {Form , Input , Button} from 'antd'
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import {  useDispatch} from 'react-redux';
+import { hideLoading, showLoading } from '../redux/alertSlice';
 function Login() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const onFinish = async(values) => {
         try{
+            dispatch(showLoading());
             const response = await axios.post('/api/user/login', values);
+            dispatch(hideLoading());
             if(response.data.success){
                 toast.success(response.data.message);
                 toast("Redirecting to home");

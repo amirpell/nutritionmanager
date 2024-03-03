@@ -3,11 +3,17 @@ import {Link, useNavigate} from 'react-router-dom'
 import {Form , Input , Button} from 'antd'
 import axios from "axios";
 import toast from "react-hot-toast";
+import {  useDispatch} from 'react-redux';
+import { hideLoading, showLoading } from '../redux/alertSlice';
 function Register() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const onFinish = async(values) => {
         try{
+            dispatch(showLoading());
             const response = await axios.post('/api/user/register', values);
+            dispatch(hideLoading());
+
             if(response.data.success){
                 toast.success(response.data.message);
                 toast("Redirecting to login");
@@ -18,6 +24,8 @@ function Register() {
 
             }
         } catch(error){
+            dispatch(hideLoading());
+
             toast.error("User already exist");
 
         }
