@@ -1,8 +1,9 @@
-import React , {useState} from 'react'
+import React  from 'react'
 import  "../layout.css"
 import {Link, useLocation} from 'react-router-dom';
+
 function Layout({children}) {
-    const [collapsed , setCollapsed] = useState(false);
+
     const location = useLocation();
  const userMenu =[
     {
@@ -11,15 +12,11 @@ function Layout({children}) {
         icon:'ri-home-line'
     },
     {
-        name:'Page'
+        name:'Cart'
         ,path:'/page',
         icon:'ri-file-list-line'
-    }
-    ,{
-        name:'Profile'
-        ,path:'/profile',
-        icon:'ri-user-line'
     },
+
     {
         name:'Logout'
         ,path:'/logout',
@@ -30,47 +27,39 @@ function Layout({children}) {
  
     return (
     <div className='main'>
-      <div className='d-flex layout'>
-    <div className={`sidebar ${collapsed && 'sidebar-collapsed'}`}>
-
         
-        <div className='sidebar-header'>
-            <h1>APP</h1>
-        </div>
-        <div className='menu'>
-            {menuToBeRendered.map((menu) => {
-                const isActive = location.pathname === menu.path
-                return <div className={`menu-item ${isActive && 'active-menu-item'}`}>
-                    <i className={menu.icon}></i>
-
-                    {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
-
-                </div>
-            })}
-
-        </div>
-    
-    </div>
+      <div className='d-flex layout'>
 
     <div className='content'>
-        
     <div className='header'>
-   {collapsed  ?(
-    < i className="ri-menu-2-fill header-action-icon"onClick={()=> setCollapsed(false)} ></i>
+    <div className='sidebar'>
 
+        
+<div className='menu'>
+{menuToBeRendered.map((menu) => {
+    const isActive = location.pathname === menu.path
+    return <div className={`menu-item ${isActive && 'active-menu-item'}`}>
+        <i className={menu.icon}></i>
 
-   ):(
-    < i className="ri-close-fill header-action-icon"onClick={()=> setCollapsed(true)}></i>
-   )
-    
+        { <Link to={menu.path}>{menu.name}</Link>}
 
-} 
+    </div>
+})}
+
+</div>
+
+</div>
+   
         </div>
         <div className='body'>
         {children}
     </div>
     </div>
+    <div className='buy'>
+        <h1>BUY NOW</h1>
       </div>
+      </div>
+    
     </div>
   )
 }

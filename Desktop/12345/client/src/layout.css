@@ -5,10 +5,14 @@
 .sidebar{
     background-color: #005555;
     border-radius: 5px;
+    display: flex;
     box-shadow:  0 0 2px gray;
-    margin-right: 20px;
-    min-height: 100%;
+    min-height: 10%;
+    justify-content: center;
+    align-items: center;
+   
     padding: 10px;
+    width: 100%;
 }
 .sidebar-collapsed{
     background-color: #005555;
@@ -19,23 +23,43 @@
     padding: 10px;
 }
 .menu{
-    margin-top: 10vh;
     padding: 0 20px;
+    display: flex;
+    gap:10vw;
 }
 .menu-item{
-    margin-top: 3vh;
+    margin: 1vh 0vw 1vh 0vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
 }.menu-item a{
 color:white ;
 font-size: 18px;
 text-decoration: none;
-
+padding: 0 10px;
 }.menu-item i{
 color:white ;
 font-size: 18px;
 text-decoration: none;
 margin:0 2vw;
    
+}
+.buy{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left:0;
+
+right: 0;
+    position: fixed;
+    background-color: rgb(235, 118, 23);
+    width: 100vw;
+    height: 10vh;
+    color: white;
 }
 .active-menu-item{
     color: white;
@@ -68,6 +92,8 @@ margin:0 2vw;
 .content{
     width: 100%;
     height: 100%;
+
+
 }
 .body{
     background-color: white;
@@ -75,16 +101,8 @@ margin:0 2vw;
     box-shadow:  0 0 2px gray;
     height: 82vh;
     width: 100%;
+overflow-x:hidden
+;overflow-y:scroll ;   
 
     
-}
-@media screen and (max-width: 750px)
-{
-    .menu{
-        padding: 0 5px;
-    }
-    .sidebar-collapsed{
-        display: none;
-    }
- 
 }

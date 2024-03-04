@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import Layout from '../components/Layout';
+import pizzas from '../pizzadata'
+import Pizza from '../components/Pizza'
 function Home() {
 
 const getData=async()=>{
@@ -21,7 +23,18 @@ const getData=async()=>{
     }, []);
   return <Layout>
     
-    <h1>homepage</h1>
+    <div>
+        <div className='row'>
+            {pizzas.map(pizza=>{
+                return <div className='col-md-4'> 
+                <div> 
+                        <Pizza pizza={pizza}/>
+                </div>
+                </div>
+            })}
+
+        </div>
+    </div>
     
     </Layout>
   
