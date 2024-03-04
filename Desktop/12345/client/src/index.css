@@ -60,7 +60,7 @@ input:focus{
   background-color: red !important;
 }
 .spinner-border{
-  width: rem;
+  width: 5rem;
   height: 5rem;
   color: white !important;
 }
