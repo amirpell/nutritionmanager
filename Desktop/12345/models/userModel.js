@@ -16,10 +16,17 @@ const userSchema = new mongoose.Schema({
         type:String
         ,required:true
     },
+    clients: {
+     
+        type:Array,
+ 
+        default: [],
+        ref : "Member"        
+    },
     isAdmin :
     {
      type:Boolean,
-        default: false
+        default: true
     } ,
     
     seenNotifications: {

@@ -4,13 +4,16 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
 import { setUser } from '../redux/userSlice'
+
 import { hideLoading, showLoading } from '../redux/alertSlice'
+import { setMember } from '../redux/memberSlice';
 
 function ProtectedRoute(props) {
 
 
     const { user } = useSelector((state) => state.user);
-    const navigate = useNavigate();
+    const { member } = useSelector((state) => state.member);
+
     const dispatch = useDispatch();
 
     const getUser = async () => {
@@ -33,16 +36,10 @@ function ProtectedRoute(props) {
             if (response.data.success) {
                 dispatch(setUser(response.data.data))
             }
-            else {
-                localStorage.clear();
-                navigate("/login")
-            }
+           
         }catch(error){      
             dispatch(hideLoading());
-            localStorage.clear();
-
-                navigate('/login')
-    
+           
     
         }
         
@@ -56,12 +53,48 @@ useEffect(()=> {
     }
 },[]);
 
+const getUserM = async () => {
+   
+    try{
+
+        dispatch(showLoading());
+        const response = await axios.post(
+            "/api/user/get-member-info-by-id",
+            { token: localStorage.getItem('token') },
+             {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+
+        });
+
+        dispatch(hideLoading());
+
+        if (response.data.success) {
+            dispatch(setMember(response.data.data))
+        }
+       
+    }catch(error){      
+        dispatch(hideLoading());
+       
+
+    }
+    
+}
+
+
+
+useEffect(()=> {
+if(!member){
+    getUserM();
+}
+},[]);
 
     if (localStorage.getItem('token')) {
         return props.children;
 
     } else {
-        return <Navigate to="/login" />
+        return <Navigate to="/welcome" />
     }
 
 }

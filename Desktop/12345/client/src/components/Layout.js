@@ -3,15 +3,23 @@ import  "../layout.css"
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {useSelector } from 'react-redux'
 function Layout({children}) {
+    
+        if(!localStorage.loaded) {
+            localStorage.setItem('loaded', 'yes')
+            window.location.reload();
+        }
+    
     const navigate = useNavigate();
     const [collapsed , setCollapsed] = useState(false);
     const {user} = useSelector((state) => state.user)
     const location = useLocation();
+    
  const userMenu =[
     {
         name:'Home'
         ,path:'/',
         icon:'ri-home-line'
+        
     },
     {
         name:'My order'
@@ -33,15 +41,21 @@ function Layout({children}) {
     }
     ,{
         name:'users'
-        ,path:'/users',
+        ,path:'/AdminUsers',
         icon:'ri-user-line'
-    },
+    },{
+        name:'Add user'
+        ,path:'/adduser',
+        icon:'ri-user-line'
+    }
     
  ];
 
 
  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
- 
+
+  
+
     return (
     <div className='main'>
       <div className='d-flex layout'>
@@ -76,7 +90,7 @@ function Layout({children}) {
     </div>
 
     <div className='content'>
-        
+    
     <div className='header'>
    {collapsed  ?(
     < i className="ri-menu-2-fill header-action-icon"onClick={()=> setCollapsed(false)} ></i>
@@ -90,7 +104,7 @@ function Layout({children}) {
 } 
 
 <Link className='anchor' to="/pro">{user?.name}{user?.email}</Link>
-        </div>
+     </div>
         <div className='body'>
         {children}
     </div>
