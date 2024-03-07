@@ -12,6 +12,7 @@ import PublicRoute from './components/PublicRoute';
 import Welcome from './pages/Welcome';
 import Userlogin from './pages/Userlogin';
 import Adduser from './pages/Adduser';
+import Verify from './pages/Verify';
 function App() {
   const {loading} = useSelector(state => state.alerts);
 
@@ -26,12 +27,13 @@ function App() {
   )}
   <Toaster position='top-center' reverseOrder={false}/>
   <Routes>
+  <Route path="/verify/:id"  element={<PublicRoute><Verify/></PublicRoute>}/>
+
     <Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
     <Route path="/userlogin" element={<PublicRoute><Userlogin/></PublicRoute>}/>
     <Route path="/register" element={<PublicRoute><Register/></PublicRoute>}/>
     <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
     <Route path="/AdminUsers" element={<ProtectedRoute><AdminUsers/></ProtectedRoute>}/>
-
     <Route path="/welcome" element={<PublicRoute><Welcome/></PublicRoute>}/>
     <Route path="/adduser" element={<ProtectedRoute><Adduser/></ProtectedRoute>}/>
 

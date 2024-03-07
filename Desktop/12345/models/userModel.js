@@ -6,11 +6,21 @@ const userSchema = new mongoose.Schema({
         type:String
         ,required:true
     },
+    verificationToken: {
+        
+        type: String,
+        
+      },
     email :
     {
         type:String
         ,required:true
     },
+    verified: {
+        type: Boolean,
+        default: false,
+      },
+    
     password :
     {
         type:String
@@ -36,9 +46,11 @@ const userSchema = new mongoose.Schema({
     unseenNotifications: {
         type:Array,
         default: [],
-     }
+     },
+    
 },{
-    timestamps: true
+    timestamps: true,
+
 
 })
 
