@@ -35,19 +35,21 @@ function Layout({children}) {
  ];
  const adminMenu =[
     {
-        name:'Home'
+        name:'בית'
         ,path:'/',
         icon:'ri-home-line'
     }
     ,{
-        name:'users'
+        name:'לקוחות'
         ,path:'/AdminUsers',
         icon:'ri-user-line'
-    },{
-        name:'Add user'
-        ,path:'/adduser',
+    },
+    {
+        name:'מאכלים'
+        ,path:'/Foods',
         icon:'ri-user-line'
-    }
+    },
+   
     
  ];
 
@@ -79,7 +81,8 @@ function Layout({children}) {
     localStorage.clear();
     navigate("/login");
  }}>
-            <i className='ri-logout-circle-line'></i>
+
+               <i className='ri-logout-circle-line'></i>
 
          {!collapsed && <Link to="/login">logout</Link>}
 

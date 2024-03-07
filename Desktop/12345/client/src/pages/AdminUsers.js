@@ -2,6 +2,10 @@ import Layout from '../components/Layout';
 import React , {useEffect ,useState} from 'react'
 import axios from "axios";
 import '../../src/list.css'
+import { PlusOutlined } from '@ant-design/icons';
+
+import { Button } from 'antd';
+import {Link} from 'react-router-dom'
 function AdminUsers() {
     if(!localStorage.loaded) {
         localStorage.setItem('loaded', 'yes')
@@ -38,7 +42,12 @@ function AdminUsers() {
   return (
     <div>
       <Layout>
-    
+<div>
+ <Link style={{ textDecoration: 'none' }} to="/adduser" >  <Button icon={<PlusOutlined />}  type="primary"
+                                className='add-user'></Button>
+ 
+ </Link>
+</div>
  <div className='header-list'>
       <div className='name'>name</div>
       <div className='email'>email</div>

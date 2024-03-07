@@ -5,8 +5,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import {  useDispatch} from 'react-redux';
 import { hideLoading, showLoading } from '../redux/alertSlice';
+
 function Register() {
   const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
 
   
   const [passwordagain, setPasswordagain] = useState("")
@@ -19,8 +22,14 @@ function Register() {
     setPasswordagain(e.target.value);
 
   }
-  console.log({password})
-  console.log({passwordagain})
+  const onChangeemail = (e) =>{
+    setEmail(e.target.value);
+
+  }
+  const onChangename = (e) =>{
+    setName(e.target.value);
+
+  }
 
   const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -28,9 +37,23 @@ function Register() {
     
     const onFinish = async(values) => {
         try{
-if(password===passwordagain){
+if(password!==passwordagain ){
+        toast.error("password dosn't match");
+        }
+else if(password.length<=5){
+    toast.error("Please input password above 6 characters");
 
+}
+else if(!email.match(/\S+@\S+\.\S+/)){
+    toast.error("Please input valid email");
 
+}
+else if(name===""){
+    toast.error("Please input name");
+
+}
+
+        else{
 
             dispatch(showLoading());
             const response = await axios.post('/api/user/register', values);
@@ -39,7 +62,6 @@ if(password===passwordagain){
             if(response.data.success){
              
                 toast.success(response.data.message);
-                toast("Redirecting to login");
                 navigate("/login");
               
             }
@@ -48,10 +70,6 @@ if(password===passwordagain){
                 toast.error(response.data.message);
 
             }
-        }
-        else{
-            toast.error("password dosnt match");
-
         }
         } catch(error){
             dispatch(hideLoading());
@@ -68,10 +86,10 @@ if(password===passwordagain){
             <h1 className='card-title'>Register</h1>
             <Form layout='vertical' onFinish={onFinish}>
                 <Form.Item label="Name" name='name'>
-                    <Input placeholder='Name'/>
+                    <Input value={name} onChange={onChangename} placeholder='Name'/>
                 </Form.Item>
                 <Form.Item label="Email" name='email'>
-                    <Input placeholder='Email'/>
+                    <Input value={email} onChange={onChangeemail} placeholder='Email'/>
                 </Form.Item>
                 <Form.Item label="Password" name='password'>
                     <Input                     onChange={onChange}

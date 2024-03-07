@@ -40,7 +40,7 @@ function Login() {
                 <Form.Item label="Password" name='password'>
                     <Input placeholder='Password' type='password'/>
                 </Form.Item>
-                <Button htmlType='submit' className='primary-button mt-3 my-2'>Register</Button>
+                <Button htmlType='submit' className='primary-button mt-3 my-2'>Login</Button>
                 <Link className='anchor' to='/Register'>Click to Register</Link>
             </Form>
         </div>

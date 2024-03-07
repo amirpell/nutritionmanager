@@ -9,7 +9,7 @@ function Welcome() {
     <div>
       <Button onClick={() => {
     navigate("/login");
- }}>כניסה לאדמין</Button>
+ }}>כניסה לתזונאים</Button>
       <Button onClick={() => {
     navigate("/userlogin");
  }}>כניסה ללקוחות</Button>

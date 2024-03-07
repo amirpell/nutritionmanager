@@ -2,6 +2,10 @@
     padding: 20px;
     height: 100vh;
 }
+.logout{
+display: flex;
+margin-top: 1000px;
+}
 .sidebar{
     background-color: #005555;
     border-radius: 5px;

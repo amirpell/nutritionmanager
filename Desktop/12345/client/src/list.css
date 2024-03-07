@@ -24,7 +24,17 @@ border-right:1px solid black;
 border-left:1px solid black;
 gap:20vw;
 }
-
+.add-user{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 15px !important;
+    font-size: 30px;
+    align-items: center;
+    width: 50px !important;
+    height: 50px !important; 
+}
 .member-name{
     width: 100px;
     display: flex;
@@ -33,6 +43,7 @@ gap:20vw;
     padding: 15px;
 
     }
+  
     .member-boss{
         border-left:1px solid black;
 
