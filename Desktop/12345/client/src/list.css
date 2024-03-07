@@ -1,0 +1,46 @@
+.member-list{
+display: flex;
+flex-direction: row;
+font-size: 18px;
+border:1px solid black;
+gap:20px}
+.member-email{
+    width: 100px;
+display: flex;
+text-align: center;
+margin-left:10%;
+border-left:1px solid black;
+padding: 15px;
+
+
+}
+.header-list{
+    display: flex;
+flex-direction: row;
+font-size: 18px;
+justify-content: center;
+border-top:1px solid black;
+border-right:1px solid black;
+border-left:1px solid black;
+gap:20vw;
+}
+
+.member-name{
+    width: 100px;
+    display: flex;
+    text-align: center;
+    margin-left:10%;
+    padding: 15px;
+
+    }
+    .member-boss{
+        border-left:1px solid black;
+
+        width: 100px;
+        display: flex;
+        text-align: center;
+        margin-left:10%;
+        padding: 15px;
+
+        
+        }

@@ -1,16 +1,12 @@
 import Layout from '../components/Layout';
 import React , {useEffect ,useState} from 'react'
-import {useSelector} from 'react-redux';
 import axios from "axios";
+import '../../src/list.css'
 function AdminUsers() {
-
     if(!localStorage.loaded) {
         localStorage.setItem('loaded', 'yes')
         window.location.reload();
     }
-
-    const {user} = useSelector((state) => state.user)
-    const adminusers = user?.clients
     const [member , setMember] = useState();
    const mapmembers = member?.adminmembers;
     console.log("ppppp", member?.adminmembers)
@@ -43,25 +39,21 @@ function AdminUsers() {
     <div>
       <Layout>
     
-    {adminusers?.map((user) => {
-                return <h1>{user}</h1>
-
-
-            })}
-         
-    {mapmembers?.email?.map((name) => {
-                return <h1>{name}</h1>
-
-
-            })}
+ <div className='header-list'>
+      <div className='name'>name</div>
+      <div className='email'>email</div>
+      <div className='token'>token</div>
+</div>
+  
              {mapmembers?.map((item,key)=>
-               { return <tr key={key}>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.boss}</td>
+               { return <div >
+               <div className='member-list' key={key}>
+                <div className='member-name'>{item.name}</div>
+                <div className='member-email'>{item.email}</div>
+                <div className='member-boss'>{item.boss}</div>
 
-              </tr>
-                
+              </div>
+              </div>
                 })}
   
             <h1>
