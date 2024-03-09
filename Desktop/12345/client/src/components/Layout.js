@@ -49,7 +49,7 @@ function Layout({children}) {
         ,path:'/Foods',
         icon:'ri-user-line'
     },
-   
+    
     
  ];
 
@@ -60,42 +60,17 @@ function Layout({children}) {
 
     return (
     <div className='main'>
-      <div className='d-flex layout'>
-    <div className={`sidebar ${collapsed && 'sidebar-collapsed'}`}>
-
-        
-        <div className='sidebar-header'>
-            <h1>APP</h1>
-        </div>
-        <div className='menu'>
-            {menuToBeRendered.map((menu) => {
-                const isActive = location.pathname === menu.path
-                return <div className={`menu-item ${isActive && 'active-menu-item'}`}>
-                    <i className={menu.icon}></i>
-
-                    {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
-
-                </div>
-            })}
- <div className='menu-item' onClick={() => {
-    localStorage.clear();
-    navigate("/login");
- }}>
-
-               <i className='ri-logout-circle-line'></i>
-
-         {!collapsed && <Link to="/login">logout</Link>}
-
-                </div>
-         
-        </div>
-    
-    </div>
+      <div className='side-menu'>
+ 
 
     <div className='content'>
     
     <div className='header'>
-   {collapsed  ?(
+  
+
+<Link className='anchor' to="/pro">{user?.name}  :שם</Link>
+<Link className='anchor' to="/pro">{user?.email}  :אימייל</Link>
+{collapsed  ?(
     < i className="ri-menu-2-fill header-action-icon"onClick={()=> setCollapsed(false)} ></i>
 
 
@@ -105,13 +80,41 @@ function Layout({children}) {
     
 
 } 
-
-<Link className='anchor' to="/pro">{user?.name}{user?.email}</Link>
      </div>
         <div className='body'>
         {children}
     </div>
     </div>
+    <div className={`sidebar ${collapsed && 'sidebar-collapsed'}`}>
+
+        
+<div className='sidebar-header'>
+    <h1 className='app-logo'>שם\לוגו</h1>
+</div>
+<div className='menu'>
+    {menuToBeRendered.map((menu) => {
+        const isActive = location.pathname === menu.path
+        return <div className={`menu-item ${isActive && 'active-menu-item'}`}>
+
+            {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
+            <i className={menu.icon}></i>
+
+        </div>
+    })}
+<div className='menu-item' onClick={() => {
+localStorage.clear();
+navigate("/login");
+}}>
+
+
+ {!collapsed && <Link to="/login">התנתק</Link>}
+ <i className='ri-logout-circle-line'></i>
+
+        </div>
+ 
+</div>
+
+</div>
       </div>
     </div>
   )

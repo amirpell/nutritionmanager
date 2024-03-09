@@ -13,6 +13,7 @@ import Welcome from './pages/Welcome';
 import Userlogin from './pages/Userlogin';
 import Adduser from './pages/Adduser';
 import Verify from './pages/Verify';
+import Message from './pages/Message'
 function App() {
   const {loading} = useSelector(state => state.alerts);
 
@@ -28,6 +29,7 @@ function App() {
   <Toaster position='top-center' reverseOrder={false}/>
   <Routes>
   <Route path="/verify/:id"  element={<PublicRoute><Verify/></PublicRoute>}/>
+  <Route path="/message" element={<ProtectedRoute><Message/></ProtectedRoute>}/>
 
     <Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
     <Route path="/userlogin" element={<PublicRoute><Userlogin/></PublicRoute>}/>

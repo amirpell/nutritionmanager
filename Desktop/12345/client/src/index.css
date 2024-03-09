@@ -93,3 +93,43 @@ input:focus{
 .register-form{
   width: 50vw;
 }
+
+.add-user-form{
+margin: 0px 20px; 
+ display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  width: 95%;
+}
+.add-user-title{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  margin:20px;
+}
+.add-user-btn{
+  display: flex !important;
+  justify-content: end !important;
+  margin-top: 20px;
+}
+.add-user-item{
+  display: flex;
+  text-align: center !important;
+}
+
+.add-user-input{
+  text-align: end;
+
+ 
+}
+.add-user-input::placeholder{
+  text-align: end;
+}
+.add-user-input{
+  text-align: end;
+}
+label{
+  display: flex;
+  justify-content: end;
+}

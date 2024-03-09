@@ -18,7 +18,7 @@ padding: 15px;
     display: flex;
 flex-direction: row;
 font-size: 18px;
-justify-content: center;
+justify-content: left;
 border-top:1px solid black;
 border-right:1px solid black;
 border-left:1px solid black;
@@ -35,6 +35,10 @@ gap:20vw;
     width: 50px !important;
     height: 50px !important; 
 }
+.add-user-link{
+display: flex;
+justify-content: end;    
+}
 .member-name{
     width: 100px;
     display: flex;
@@ -43,6 +47,9 @@ gap:20vw;
     padding: 15px;
 
     }
+  .name{
+    margin: 5px 0px 5px 10px;
+  }
   
     .member-boss{
         border-left:1px solid black;
@@ -55,3 +62,22 @@ gap:20vw;
 
         
         }
+
+
+
+
+
+        .send-user-link{
+            display: flex;
+            justify-content: end;
+        }
+       .send-message{
+        border-left:1px solid black;
+
+        width: 100px;
+        display: flex;
+        text-align: center;
+        justify-content: end;
+        margin-left:30%;
+        padding: 15px;
+       }

@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import {  useDispatch} from 'react-redux';
 import {useSelector } from 'react-redux'
-
+import '../index.css'
 import { hideLoading, showLoading } from '../redux/alertSlice';
 import Layout from '../components/Layout';
 
@@ -46,11 +46,10 @@ function Adduser() {
         }
     };
   return (
-    <Layout>    
-  <div className='authentication'>
-        <div className='register-form card p-3'>
-            <h1 className='card-title'>add user</h1>
-            <Form layout='vertical' onFinish={onFinish}
+    <Layout>
+            
+            <h1 className='add-user-title'>הוסף לקוח</h1>
+            <Form layout='vertical' className="add-user-form" onFinish={onFinish}
             fields={[
                 {
                     name: ["useremail"],
@@ -66,20 +65,32 @@ function Adduser() {
                 </Form.Item>
                 </div>
 
-                <Form.Item label="Name" name='name'>
-                    <Input placeholder='Name'/>
-                </Form.Item>
-                <Form.Item label="Email" name='email'>
-                    <Input placeholder='Email'/>
-                </Form.Item>
-                <Form.Item label="Password" name='password'>
-                    <Input placeholder='Password' type='password'/>
-                </Form.Item>
-                <Button htmlType='submit' className='primary-button mt-3 my-2'>add user</Button>
-            </Form>
-        </div>
+                <Form.Item  name='name'>
+                <label>:שם</label>
 
-    </div>
+                    <Input   className='add-user-input' placeholder='שם'/>
+                </Form.Item>
+                <Form.Item  name='email'>
+                <label>:אימייל</label>
+
+                    <Input  className='add-user-input' placeholder='אימייל'/>
+               
+                </Form.Item>
+                
+                <Form.Item
+              
+                    name='password'>
+                                                <label>:מספר טלפון</label>
+
+                    <Input className='add-user-input'  placeholder='טלפון' type='Phone'/>
+                </Form.Item>
+                <div className='add-user-btn'>       <Button htmlType='submit'>הוסף לקוח</Button>
+                </div>
+
+            </Form>
+     
+
+    
     </Layout>
   )
 }

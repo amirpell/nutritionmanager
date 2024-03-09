@@ -237,5 +237,20 @@ router.post("/get-posts",authMiddleware, async (req, res) => {
     }
   });
   
+  router.post("/get-message-to",authMiddleware, async (req, res) => {
+    try {
+       
+        const adminmembers = await Member.find({ boss :  req.body.userId });
+        return res.status(200).send({ 
+          adminmembers
+          });
+  
+  
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+  });
+  
 
 module.exports = router ;
