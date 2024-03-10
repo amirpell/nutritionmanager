@@ -37,7 +37,7 @@ function App() {
     <Route path="/register" element={<PublicRoute><Register/></PublicRoute>}/>
     <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
     <Route path="/AdminUsers" element={<ProtectedRoute><AdminUsers/></ProtectedRoute>}/>
-    <Route path="https://first-fnlw.onrender.com/welcome" element={<PublicRoute><Welcome/></PublicRoute>}/>
+    <Route path="/welcome" element={<PublicRoute><Welcome/></PublicRoute>}/>
     <Route path="/adduser" element={<ProtectedRoute><Adduser/></ProtectedRoute>}/>
 
 
