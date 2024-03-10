@@ -29,20 +29,36 @@ function Login() {
         }
     };
   return (
+
+
     <div className='authentication'>
+              <img className='logo-login' src={require('./logo.png')} alt='/'/>
+
         <div className='register-form card p-3'>
-            <h1 className='card-title'>Admin Login</h1>
-            <Form layout='vertical' onFinish={onFinish}>
+            <h1 className='card-title'>התחברות</h1>
+            <h1 className='card-sub-title'>התחילו לבנות את תוכניות האימון של המתאמנים שלכם 
+בצורה המקצועית ביותר!</h1>
+
+            <Form className='form-login' layout='vertical' onFinish={onFinish}>
                
-                <Form.Item label="Email" name='email'>
-                    <Input placeholder='Email'/>
+                <Form.Item  className='login-input' name='email'>
+                <label>:אימייל</label>
+
+                    <Input className='login-input' placeholder='אימייל'/>
                 </Form.Item>
-                <Form.Item label="Password" name='password'>
-                    <Input placeholder='Password' type='password'/>
+                <Form.Item  className='login-input' name='password'>
+                <label>:סיסמא</label>
+
+                    <Input className='login-input' placeholder='סיסמא' type='password'/>
                 </Form.Item>
-                <Button htmlType='submit' className='primary-button mt-3 my-2'>Login</Button>
-                <Link className='anchor' to='/Register'>Click to Register</Link>
+                <div className='forgot'>
+                <h1 className='forgot'>?שכחת סיסמא</h1>
+                </div>
+                <Button htmlType='submit' className='login-btn'>התחברות</Button>
+                <Link className='anchor' to='/Register'>אין לך משתמש? הרשם עכשיו</Link>
+                
             </Form>
+
         </div>
 
     </div>

@@ -50,7 +50,47 @@ function Welcome() {
     navigate("/userlogin");
  }}>כניסה לקוחות</Button>
 </div>
+<div className='texting2'>
+    <h1 className='text3-welcome'>?מה היתרונות שלנו</h1>
+    <h1 className='text4-welcome'>!הגיע זמן לבנות תפריטי תזונה בצורה מקצועית, נוחה ומהירה</h1>
 
+  </div>
+
+  <div className='texting3'>
+    <div className='firstevent'>
+  <img className='event1' src={require('./event1.png')} alt='/'/>
+    <h1 className='text5-welcome'>יומן וקביעת תורים</h1>
+    <h1 className='text6-welcome'>ניתן דרך התוכנה לנהל את
+יומן הפגישות יחד עם קביעת 
+תורים דרך האפליקציה</h1>
+</div>
+<div className='firstevent'>
+  <img className='event1' src={require('./event2.png')} alt='/'/>
+    <h1 className='text5-welcome'>ניהול ומעקב</h1>
+    <h1 className='text6-welcome'>.באמצעות התוכנה ניתן לנהל ולעקוב אחרי כל הלקוחות שלכם במקום אחד</h1>
+</div>
+<div className='firstevent'>
+  <img className='event1' src={require('./event3.png')} alt='/'/>
+    <h1 className='text5-welcome'>יומן וקביעת תורים</h1>
+    <h1 className='text6-welcome'>ניתן דרך התוכנה לנהל את
+יומן הפגישות יחד עם קביעת 
+תורים דרך האפליקציה</h1>
+</div>
+<div className='firstevent'>
+  <img className='event1' src={require('./event4.png')} alt='/'/>
+    <h1 className='text5-welcome'>יומן וקביעת תורים</h1>
+    <h1 className='text6-welcome'>ניתן דרך התוכנה לנהל את
+יומן הפגישות יחד עם קביעת 
+תורים דרך האפליקציה</h1>
+</div>
+<div className='firstevent'>
+  <img className='event1' src={require('./event5.png')} alt='/'/>
+    <h1 className='text5-welcome'>יומן וקביעת תורים</h1>
+    <h1 className='text6-welcome'>ניתן דרך התוכנה לנהל את
+יומן הפגישות יחד עם קביעת 
+תורים דרך האפליקציה</h1>
+</div>
+  </div>
 </div>
 
 
