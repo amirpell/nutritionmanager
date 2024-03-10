@@ -8,19 +8,19 @@ import {useSelector } from 'react-redux'
 import '../index.css'
 import { hideLoading, showLoading } from '../redux/alertSlice';
 import Layout from '../components/Layout';
-
+import Notifications from './Notifications';
 function Message() {
-    const location = useLocation();
-    const { fromHome } = location.state;
-    let data = fromHome.sendid;
+    const [users , setUsers] = useState();
+    const [message , setMessage] = useState();
 
+    const location = useLocation();
+    const memberid = location.state.name.email;
     if(!localStorage.loaded) {
         localStorage.setItem('loaded', 'yes')
         window.location.reload();
     }
     const [member , setMember] = useState();
    const mapmembers = member?.adminmembers;
-    console.log("ppppp", member?.adminmembers)
     const getmessageto=async()=>{
         try{
             const response = await axios.post("/api/user/get-message-to" , {} , {
@@ -34,7 +34,6 @@ function Message() {
                     window.location.reload();
                 }
             }
-            console.log("asdiasjd", response.data)
             setMember(response.data)
 
         }catch(error){      
@@ -80,8 +79,80 @@ function Message() {
 
         }
     };
+    const getData=async()=>{
+        try{
+            const response = await axios.post("/api/user/get-user-info-by-id" , {} , {
+                headers:{
+                    Authorization : "Bearer " + localStorage.getItem("token"),
+                },
+            });
+            window.onload = function() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+            console.log(response.data)
+            setUsers(response.data)
+        }catch(error){      
+            console.log(error)
+    
+        }
+    }
+        useEffect(()=> {
+            getData();
+        }, []);
+    
+        const getDataM=async()=>{
+            try{
+                const response = await axios.post("/api/user/get-member-info-by-id" , {} , {
+                    headers:{
+                        Authorization : "Bearer " + localStorage.getItem("token"),
+                    },
+                });
+                console.log(response.data)
+                window.onload = function() {
+                    if(!window.location.hash) {
+                        window.location = window.location + '#loaded';
+                        window.location.reload();
+                    }
+                }
+                setUsers(response.data)
+    
+            }catch(error){      
+                console.log(error)
+            }
+        }
+            useEffect(()=> {
+                getDataM();
+            }, []);
+            const getmessages=async()=>{
+                try{
+                    const response = await axios.post("/api/user/get-messages" , {} , {
+                        headers:{
+                            Authorization : "Bearer " + localStorage.getItem("token"),
+                        },
+                    });
+                    window.onload = function() {
+                        if(!window.location.hash) {
+                            window.location = window.location + '#loaded';
+                            window.location.reload();
+                        }
+                    }
+                    setMessage(response.data)
+                    console.log(response.data)
+                }catch(error){      
+                    console.log(error)
+            
+                }
+            }
+                useEffect(()=> {
+                    getmessages();
+                }, []);
   return (
     <Layout>
+<h1>{location.state.name.email}</h1>
+<h1>{memberid}</h1>
 
             <h1 className='add-user-title'>שלח הודעה</h1>
 
@@ -102,7 +173,12 @@ function Message() {
                     <Input    placeholder='Email'/>
                 </Form.Item>
                 </div>
-             
+                <div style={{display:'none'}}>
+        
+        <Form.Item  initialValue={memberid} id="quantity" name='memberid'>
+<Input placeholder='Email'/>
+</Form.Item>
+</div>
 
              
                 
@@ -111,17 +187,16 @@ function Message() {
                   name='message'>
 
                   <Input className='add-user-input' 
-                  placeholder='הודעה' type='Message' />
+                  placeholder='הודעה' type='text' />
               </Form.Item>
        
                 <div className='add-user-btn'>       <Button htmlType='submit'>שלח</Button>
                 </div>
 
             </Form>
-            <p>id: {data}</p>
-
-
-    
+            <p>id</p>
+         
+<Notifications/>
     </Layout>
   )
 }

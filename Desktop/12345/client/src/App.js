@@ -7,7 +7,7 @@ import {useSelector} from "react-redux"
 import {BrowserRouter , Routes ,Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import Notifications from './pages/Notifications'
 import PublicRoute from './components/PublicRoute';
 import Welcome from './pages/Welcome';
 import Userlogin from './pages/Userlogin';
@@ -30,6 +30,7 @@ function App() {
   <Routes>
   <Route path="/verify/:id"  element={<PublicRoute><Verify/></PublicRoute>}/>
   <Route path="/message" element={<ProtectedRoute><Message/></ProtectedRoute>}/>
+  <Route path="/notifications" element={<ProtectedRoute><Notifications/></ProtectedRoute>}/>
 
     <Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
     <Route path="/userlogin" element={<PublicRoute><Userlogin/></PublicRoute>}/>

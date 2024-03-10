@@ -49,7 +49,11 @@ function Layout({children}) {
         ,path:'/Foods',
         icon:'ri-user-line'
     },
-    
+    {
+        name:'הודעות'
+        ,path:'/notifications',
+        icon:'ri-user-line'
+    },
     
  ];
 

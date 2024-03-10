@@ -1,0 +1,142 @@
+.welcome-image{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background-size: cover;
+z-index: 1;
+    background-image: url("pages/welcomebg.png");
+}
+.welcome-container{
+    width: 100vw;
+    height: 100vh;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+ font-weight: 700;
+    flex-wrap: wrap;
+    font-family: 'Assistant' !important;
+
+}
+
+.welcome-card{
+    z-index: 2;
+    background-color: rgb(255, 255, 255);
+    width: 73%;
+    justify-content: center;
+  margin: 0 auto;
+  top:15vh;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+}
+.welcome-card-header{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 9.1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Assistant';
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 10px 20px 0px #C2C2C229;
+}
+.welcome-menu{
+    display: flex;
+    gap:3.8vw;
+    font-size: 1vw;
+    font-weight: 700;
+    align-content: center;
+    justify-content: center;
+}
+.logo{
+    position: relative;
+    z-index: 2;
+    width: 17.6vw;
+    display: flex;
+    margin: 0 auto;
+    top:8vh;
+       
+
+    
+}
+.login-btn{
+    border-radius: 45px;
+    border: 1.5px solid #679448;
+    width: 12vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 7vh;
+    font-family: 'Assistant';
+    font-size: 1vw;
+    font-weight: 700;
+line-height: 14px;
+letter-spacing: 0em;
+text-align: left;
+
+padding: 14px, 28px, 14px, 28px;
+
+
+
+}
+.login-btn:hover{
+    background: #679448 !important;
+    color: white !important;
+    border: 1.5px solid #679448 !important;
+
+
+}
+.text-welcome{
+   
+font-family: 'Assistant';
+font-size: 40px;
+justify-content: center;
+display: flex;
+margin: 0 auto;
+font-weight: 800;
+line-height: 45px;
+letter-spacing: 0em;
+text-align: left;
+color: #515151;
+
+}
+.text2-welcome{
+    font-family: 'Assistant' !important;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0 auto;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+
+    color: #646464;
+
+    }
+    .texting{
+        margin-top: 10vh;
+        margin-bottom: 3vh;
+    }
+    .menubtn{
+       
+padding: 7px;
+border-radius: 45px;
+color: #4F7336;
+padding: 10px 15px 10px 15px;
+
+
+    }
+    .menubtn:hover{
+        background-color: #679448;
+       
+        padding: 10px 15px 10px 15px;
+        border-radius: 45px;
+color: white;
+
+
+    }

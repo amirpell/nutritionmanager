@@ -8,6 +8,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middlewares/authMiddleware");
 const Member = require('../models/memberModel');
+const Message = require('../models/messageModel');
+const { message } = require('antd');
 
 router.post('/register' , async (req,res) => {
     try{
@@ -237,20 +239,57 @@ router.post("/get-posts",authMiddleware, async (req, res) => {
     }
   });
   
-  router.post("/get-message-to",authMiddleware, async (req, res) => {
-    try {
-       
-        const adminmembers = await Member.find({ boss :  req.body.userId });
-        return res.status(200).send({ 
-          adminmembers
-          });
-  
-  
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Internal Server Error" });
-      }
+  router.post("/message", async (req, res) => {
+    try{
+
+        //loggin user
+        const adminUser= await User.findOne({email: req.body.useremail});
+
+        req.body.from = adminUser.email;
+
+
+
+        const newmessage = new Message(req.body);
+
+        newmessage.messages = req.body.message;
+        newmessage.to = req.body.memberid;
+
+        await newmessage.save();
+
+        res.status(200).send({message : "ההודעה נשלחה" , success: true});
+    } catch(error){
+        console.log(error)
+
+        res.status(500).send({message : "error creating User" , success: false, error});
+
+    }
   });
   
+  router.post("/get-messages" ,authMiddleware,  async(req,res)=>{
+    try{
+        const some =  User.findById ;
+
+        const adminuser = await Member.findOne({ email : some});
+
+            const adminemail = adminuser.email
+        const user = await Message.find({ to : adminemail});
+        
+
+        if(!user){
+            return res.status(200).send({message : "user does not exist", success: false});
+            
+        }
+        else{
+            return res.status(200).send({ 
+                success: true ,
+                 data: user,
+                });
+
+        }
+    }catch(error){
+        return res.status(500).send({message : "error getting user info", success: false ,error});
+
+    }
+});
 
 module.exports = router ;

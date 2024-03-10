@@ -4,17 +4,29 @@ import axios from "axios";
 import '../../src/list.css'
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import {Link } from 'react-router-dom'
+import {Link ,useNavigate ,useParams} from 'react-router-dom'
 
-function AdminUsers() {
-const [sendid,setSendid] = useState("")
+function AdminUsers({item }) {
+    const param = useParams();
 
-    const testing = async(e) => {
+const navigate=useNavigate();
+    const [currentusername , setcurrentusername] = useState("")
+    const [correntselected , setcurrentselectedChat] = useState("")
+const changecurrentChat = (index) => {
+     setcurrentselectedChat(index);
      
-        setSendid(e.target.value)
-        console.log(sendid)
+     if( correntselected!==""){
+        navigate(`/message`,{state:{name: correntselected}});
 
-    }
+     }
+    
+    
+
+}
+console.log(correntselected)
+
+
+    
 
 
 
@@ -22,6 +34,7 @@ const [sendid,setSendid] = useState("")
         localStorage.setItem('loaded', 'yes')
         window.location.reload();
     }
+    
     const [member , setMember] = useState();
    const mapmembers = member?.adminmembers;
     const getData=async()=>{
@@ -65,23 +78,18 @@ const [sendid,setSendid] = useState("")
       <div className='name'>token</div>
 </div>
   
-             {mapmembers?.map((item)=>
+             {mapmembers?.map((item , index)=>
                { return <div >
                <div className='member-list' key={item._id}>
                 <div className='member-name'>{item.name}</div>
                 <div className='member-email'>{item.email}</div>
-                <div  className='member-boss'>{item._id}</div>
 
-               < Button value={item._id}
-onClick={testing}
-                >
-               </Button>
-               
+                <div className='member-boss'>{item._id}</div>
+
             
-               <Link to="/message" state={{ fromHome: { sendid } }}>
-               
-               to Other Component</Link>                 
- 
+               <Button onClick= {() => {changecurrentChat(item,index)}}>
+                00000000
+              </Button>                 
 
               
               </div>
@@ -94,7 +102,9 @@ onClick={testing}
   
             <h1>
             </h1>
-    
+    <div > 
+<h2>{currentusername}</h2>
+    </div>
       </Layout>
       
     </div>
