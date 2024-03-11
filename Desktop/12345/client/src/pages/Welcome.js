@@ -1,12 +1,10 @@
 import React from 'react'
 import { Button} from 'antd'
-import {  useNavigate ,useLocation} from 'react-router-dom'
+import {  useNavigate} from 'react-router-dom'
 import '../welcome.css'
 
-import welcome from '../pages/welcomebackground.jpeg'
 function Welcome() {
     const navigate = useNavigate();
-    const location = useLocation();
 
  
 
@@ -38,7 +36,7 @@ function Welcome() {
 </div>
   </div>
   <div className='texting'>
-    <h1 className='text-welcome'>NUTRITION MANAGERברוכים הבאים ל</h1>
+    <h1 className='text-welcome'>NUTRITION MANAGER</h1>
     <h1 className='text2-welcome'>!בניית תפריט בצורה מקצועית, נוחה ומהירה</h1>
 
   </div>

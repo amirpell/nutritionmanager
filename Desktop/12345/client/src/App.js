@@ -14,6 +14,9 @@ import Userlogin from './pages/Userlogin';
 import Adduser from './pages/Adduser';
 import Verify from './pages/Verify';
 import Message from './pages/Message'
+import Forgotpassword from './pages/ForgotPassword';
+import Entertoken from './pages/Entertoken';
+import Newpassword from './pages/Newpassword';
 function App() {
   const {loading} = useSelector(state => state.alerts);
 
@@ -31,6 +34,9 @@ function App() {
   <Route path="/verify/:id"  element={<PublicRoute><Verify/></PublicRoute>}/>
   <Route path="/message" element={<ProtectedRoute><Message/></ProtectedRoute>}/>
   <Route path="/notifications" element={<ProtectedRoute><Notifications/></ProtectedRoute>}/>
+  <Route path="/forgotpassword" element={<Forgotpassword/>}/>
+  <Route path="/entertoken" element={<Entertoken/>}/>
+  <Route path="/newpassword" element={<Newpassword/>}/>
 
     <Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
     <Route path="/userlogin" element={<PublicRoute><Userlogin/></PublicRoute>}/>

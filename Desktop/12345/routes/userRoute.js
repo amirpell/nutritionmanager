@@ -80,7 +80,7 @@ router.post('/register' , async (req,res) => {
 router.post('/login' , async (req,res) => {
     try{
         const user  = await User.findOne({ email : req.body.email}) 
-        
+
         if(!user){
             return res.status(200).send({message : " User not exist" , success : false});
 
@@ -291,5 +291,73 @@ router.post("/get-posts",authMiddleware, async (req, res) => {
 
     }
 });
+router.post('/forgotpassword', async (req, res) => {
+    try {
+       
+        const user= await User.findOne({email : req.body.email})
+        if(!user) return res.status(400).send({ message: "Email not found" });
+        
+        await User.updateOne({email : user.email ,changepass: crypto.randomBytes(2).toString("hex") } )
+      res.status(200).json({ message: "Email sent successfully",success: true });
+        console.log(user.email)
+    } catch (error) {
+      console.log("error getting token", error);
+      res.status(500).json({ message: "Email verification failed" });
+    }
+  });
+  router.post('/entertoken', async (req, res) => {
+    try {
+       
+        const user= await User.findOne({email : req.body.email})
+        const resetcode = user.changepass;
+        const inputresetcode = req.body.password
+      
 
+        if(resetcode == inputresetcode){
+            res.status(200).json({ message: "code currect" ,success: true });
+            await User.updateOne({email : user.email ,changepass: null } )
+
+    
+        }
+        else {
+            res.status(200).json({ message: "code fail" ,success: false });
+
+        }
+    } catch (error) {
+      console.log("error getting token", error);
+      console.log(" reset" ,resetcode )
+      console.log(inputresetcode ," resetinput"  )
+
+      res.status(500).json({ message: "Email verification failed" });
+    }
+  });
+  router.post('/newpassword', async (req, res) => {
+    try {
+       
+        const user= await User.findOne({email : req.body.email})
+        const newpassword = req.body.password
+        const newpasswordagain = req.body.passwordagain
+        const salt = await bcrypt.genSalt(10);
+
+
+        if(newpassword == newpasswordagain){
+            res.status(200).json({ message: "password changed" ,success: true });
+
+            const hashedPassword= await bcrypt.hash(newpassword , salt);
+            req.body.password = hashedPassword;
+            await User.updateOne({email : user.email ,password: hashedPassword } )
+
+        }
+        else {
+            res.status(200).json({ message: "password dosnt match" ,success: false });
+
+        }
+    } catch (error) {
+      console.log("error getting token", error);
+      console.log(" reset" ,resetcode )
+      console.log(inputresetcode ," resetinput"  )
+
+      res.status(500).json({ message: "Email verification failed" });
+    }
+  });
 module.exports = router ;

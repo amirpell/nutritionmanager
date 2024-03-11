@@ -16,12 +16,20 @@ label{
   color: black !important;
 }
 .primary-button{
-  background-color: #005555 !important;
-  border-color: #005555 !important ;
-  height: 40px;
-  width: 100%;
+
+  background: #DFDFDF;
+
   color: white;
   font-size: 18px !important;
+  width: 176px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 42px;
+padding: 14px 28px 14px 28px;
+border-radius: 45px;
+gap: 10px;
+
 }
 .anchor{
   color: rgb(65, 63, 63) !important;
@@ -41,6 +49,21 @@ letter-spacing: 0px;
 text-align: center;
 
 
+}
+.icon{
+  position: relative;
+}
+.forgot-pass{
+  font-family: 'Assistant';
+font-size: 14px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0em;
+margin-top: 10px;
+display: flex;
+text-decoration: underline;
+width: 340px;
+justify-content: end;
 }
 .card-sub-title{
 font-family: 'Assistant';
@@ -99,7 +122,6 @@ input:focus{
 
 /*auth pages */
 .authentication{
-  height: 100vh;
   
   flex-direction: column;
   display: flex;
@@ -110,13 +132,14 @@ input:focus{
   position: absolute;
   background-size: cover;
 z-index: 1;
-  background-image: url("pages/welcomebg.png");
+  background-image :linear-gradient(180deg, rgba(0, 0, 0, 0.41) 0%, rgba(0, 0, 0, 0.32) 100%),url("pages/welcomebg.png");
 }
 .form-login{
   width: 414px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   justify-content: center;
   align-self: center;
 }
@@ -125,6 +148,18 @@ z-index: 1;
   display: flex;
   width: 350px !important;
 
+}.login-input label{
+  display: flex;
+  color: #4F535C !important;
+  font-family: 'Assistant';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  justify-content: end !important;
+  letter-spacing: 0em !important;
+  margin-left: 10px !important;
+  width: 360px !important;
 }
 .logo-login{
   width: 200px;
@@ -132,8 +167,8 @@ z-index: 1;
   margin-top: 0px;
 }
 .register-form{
-  width: 700px;
-
+  width: 650px;
+  height: 450px;
 border-radius: 10px;
 box-shadow: 0px 10px 20px 0px #C2C2C229 !important;
 
@@ -141,6 +176,114 @@ box-shadow: 0px 0px 30px 0px #AAAAAA29 !important;
 
 
 
+}
+
+@media (max-width:750px){
+  .register-form{
+    width: 100vw;
+    height: 80vh;
+
+    position: absolute;
+    bottom: 0;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 0px #C2C2C229 !important;
+  
+  box-shadow: 0px 0px 30px 0px #AAAAAA29 !important;
+  
+  
+  
+  }
+  .card-title{
+    margin-top: 30px;
+
+  }
+  .card-sub-title{
+    font-family: 'Assistant';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+    align-self: center;
+    width: 80%;
+
+    display: flex;
+    justify-content: center;
+    color :#718096;
+    }
+    .form-login{
+      width: 300px !important;
+      margin-top: 50px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  align-self: center !important;
+  flex-wrap: wrap !important;
+
+
+    }.login-input{
+      text-align: end;
+      display: flex;
+      flex-flow: column !important;
+      width: 300px !important;
+      text-wrap: wrap;
+    }
+    
+    
+.logo-login{
+  width: 200px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  position: absolute;
+  top: 30px;
+
+}
+.primary-button{
+
+  background: #DFDFDF;
+
+  color: white;
+  font-size: 18px !important;
+  width: 176px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 42px;
+margin-top: 40px !important;
+padding: 14px 28px 14px 28px;
+border-radius: 45px;
+gap: 10px;
+
+}
+.forgot-pass{
+  font-family: 'Assistant';
+font-size: 14px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0em;
+margin-top: 10px;
+display: flex;
+text-decoration: underline;
+width: 300px;
+justify-content: end;
+}
+
+.authentication{
+  
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-size: contain;
+z-index: 1;
+
+
+  background:  linear-gradient(180deg, rgba(0, 0, 0, 0.41) 0%, rgba(0, 0, 0, 0.32) 100%),url("pages/180.png");
+}
 }
 .forgot{
   width: 350px;
@@ -165,14 +308,14 @@ margin: 0px 20px;
   align-items: end;
   width: 95%;
 }
-.login-btn {
+.login-btn2 {
   color: white !important;
   background: #679448 !important;
 margin-top: 20px;
 padding: 14px 28px 14px 28px !important;
 border-radius: 45px;
 gap: 10px;
-width: 350px !important;
+width: 200px !important;
 height: 21px !important;
 }
 .add-user-title{
