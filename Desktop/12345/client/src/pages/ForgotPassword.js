@@ -46,7 +46,7 @@ function Forgotpassword() {
 
             <Form className="form-login" layout='vertical' onFinish={onFinish}>
                
-                <Form.Item    className="login-input" label=":מייל" name='email'>
+                <Form.Item    className="ldogin-input" label=":מייל" name='email'>
                  
                     <Input  value={email} onChange={onChangeemail}
                     
