@@ -221,7 +221,31 @@ router.post("/get-posts",authMiddleware, async (req, res) => {
       console.log("error sending email", error);
     }
   };
+  const sendPasswordToken= async (email, changepass) => {
+    //create a nodemailer transporter
   
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "amirpb87@gmail.com",
+        pass: "zuzihuzontqijepr",
+      },
+    });
+      //compose the email message
+
+    const mailOptions = {
+      from: "TripLink",
+      to: email,
+      subject: "Email Verification",
+      text: `${changepass}`,
+    };
+  
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (error) {
+      console.log("error sending email", error);
+    }
+  };
 
   router.get('/verify/:id', async (req, res) => {
     try {
@@ -296,9 +320,13 @@ router.post('/forgotpassword', async (req, res) => {
        
         const user= await User.findOne({email : req.body.email})
         if(!user) return res.status(400).send({ message: "Email not found" });
-        
-        await User.updateOne({email : user.email ,changepass: crypto.randomBytes(2).toString("hex") } )
-      res.status(200).json({ message: "Email sent successfully",success: true });
+       await  User.updateOne
+       ({email : user.email ,changepass: crypto.randomBytes(2).toString("hex") }
+       , sendPasswordToken(user.email, user.changepass) )
+   
+       
+
+        res.status(200).json({ message: "Email sent successfully",success: true });
         console.log(user.email)
     } catch (error) {
       console.log("error getting token", error);

@@ -18,8 +18,13 @@ const userSchema = new mongoose.Schema({
     },
     changepass :
     {
-        type:String
+        type:String 
+       
     },
+     
+        
+    
+    
     verified: {
         type: Boolean,
         default: false,

@@ -1,10 +1,11 @@
-import React from 'react'
+import React , {useState} from 'react'
 import {  useNavigate ,useLocation } from 'react-router-dom'
 import {Form , Input , Button } from 'antd'
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import {  useDispatch} from 'react-redux';
 import { hideLoading, showLoading } from '../redux/alertSlice';
+import EnterCode from '../components/EnterCode';
 
 function Entertoken() {
     const dispatch = useDispatch();
@@ -34,21 +35,21 @@ function Entertoken() {
 
         }
     };
-   
+    
   return (
 
 
     <div className='authentication'>
               <img className='logo-login' src={require('./logo.png')} alt='/'/>
-
+           
         <div className='register-form card p-3'>
-            <h1 className='card-title'>הכנס קוד</h1>
-
+         <h1 className='card-title'>הכנס קוד</h1>
+       
             <Form className="form-login" layout='vertical' onFinish={onFinish}>
                
                 <Form.Item    className="login-input"  name='password'>
                  
-                    <Input  
+                    <Input  maxLength={4}
                     
                     className="login-input"/>
                 </Form.Item>

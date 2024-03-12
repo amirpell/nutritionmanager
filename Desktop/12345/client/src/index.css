@@ -50,6 +50,7 @@ text-align: center;
 
 
 }
+
 .icon{
   position: relative;
 }
@@ -61,6 +62,7 @@ line-height: 24px;
 letter-spacing: 0em;
 margin-top: 10px;
 display: flex;
+color: black !important;
 text-decoration: underline;
 width: 340px;
 justify-content: end;
@@ -264,7 +266,8 @@ line-height: 24px;
 letter-spacing: 0em;
 margin-top: 10px;
 display: flex;
-text-decoration: underline;
+text-decoration: underline !important;
+color: black !important;
 width: 300px;
 justify-content: end;
 }
