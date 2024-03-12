@@ -5,7 +5,7 @@ import '../welcome.css'
 
 function Welcome() {
     const navigate = useNavigate();
-
+<title>amirpellman</title>
  
 
   return (
