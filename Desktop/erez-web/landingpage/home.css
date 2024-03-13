@@ -212,10 +212,18 @@ top: 120%;    width: 100vw;
     display: none;
 }
 .text42{
-    display: none;
+   display: none;
 }
 .text1011{
     padding-top: 100px;
+}
+.text101{
+font-size: 30px;
+font-weight: 600;
+line-height: 46px;
+letter-spacing: 0em;
+text-align: center;
+color: #51DEC7;
 }
 .items{
     border: 2px solid white
@@ -287,7 +295,6 @@ z-index: 5;
     height: 100vh;
     background-color: black;
  display: flex;
-   display: none;
     z-index: -1;
     background-size: cover;
     background-repeat: no-repeat;
@@ -316,6 +323,7 @@ z-index: 5;
     letter-spacing: 0em;
     text-align: right;
      color: #51DEC7;
+     width: 50%;
 }
 .text16{
 font-size: 24px;
@@ -324,7 +332,7 @@ line-height: 29px;
 letter-spacing: 0em;
 text-align: right;
 color: white;
-width: 90%;
+width: 50%;
 }
 .line2{
     height: 350px;
@@ -340,7 +348,7 @@ width: 90%;
 }
 .section4{
     height: 80vh;
-    margin-top: 70vh;
+    margin-top: 0vh;
 }
 .section5{
     height: 80vh;
@@ -528,7 +536,7 @@ color: white;    font-size: 24px;
 }
 .sendinfo{
     width: 70%;
-    height: 25%;
+    height: 50px;
 font-size: 18px;
 border-radius: 5px;
 font-weight: 600;
