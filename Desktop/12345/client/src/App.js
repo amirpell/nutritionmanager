@@ -20,6 +20,7 @@ import Newpassword from './pages/Newpassword';
 function App() {
   const {loading} = useSelector(state => state.alerts);
 
+  
   return (
   
   <BrowserRouter>

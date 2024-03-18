@@ -8,6 +8,7 @@ import { hideLoading, showLoading } from '../redux/alertSlice';
 import { EyeOutlined,EyeInvisibleOutlined } from '@ant-design/icons';
 
 function Login() {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const onFinish = async(values) => {
@@ -48,7 +49,7 @@ function Login() {
                 <Form.Item    className="login-input" label=":מייל" name='email'>
                  
                     <Input  
-                    
+                   
                     className="login-input" placeholder='@email.com'/>
                 </Form.Item>
                
@@ -77,7 +78,9 @@ placeholder='*****' type={
 
                 </Form.Item>
                 <Link to='/forgotpassword' className='forgot-pass'>?שכחת סיסמא</Link>
-                <Button htmlType='submit' className='primary-button mt-3 my-2'>התחברות</Button>
+                <Button 
+                
+                htmlType='submit' className='primary-button mt-3 my-2'>התחברות</Button>
             </Form>
             
         </div>
